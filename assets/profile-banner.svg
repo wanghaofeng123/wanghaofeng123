@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+  <title id="title">Wang Haofeng — Embodied AI and Robotics</title>
+  <desc id="desc">A dark blue banner with an abstract robot arm and the themes VLA, world models, and ego data.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101c32"/>
+      <stop offset="1" stop-color="#0b2936"/>
+    </linearGradient>
+    <linearGradient id="arm" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#58a6ff"/>
+      <stop offset="1" stop-color="#5eead4"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#a0b8cf" stroke-opacity=".055"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="320" rx="20" fill="url(#background)"/>
+  <rect width="1280" height="320" rx="20" fill="url(#grid)"/>
+  <circle cx="1120" cy="80" r="170" fill="#22d3ee" fill-opacity=".035"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="56" y="49" width="5" height="21" rx="2.5" fill="#5eead4"/>
+    <text x="75" y="65" font-size="16" font-weight="600" letter-spacing="3" fill="#9db5cf">RESEARCH &amp; ENGINEERING</text>
+    <text x="56" y="139" font-size="53" font-weight="700" letter-spacing="1" fill="#f1f5f9">WANG HAOFENG</text>
+    <text x="59" y="185" font-size="27" font-weight="400" fill="#c9d8e8">Embodied AI &amp; Robotics</text>
+    <g font-size="16" fill="#d8e7f3">
+      <rect x="57" y="225" width="71" height="34" rx="17" fill="#58a6ff" fill-opacity=".13" stroke="#58a6ff" stroke-opacity=".3"/>
+      <text x="92.5" y="247" text-anchor="middle">VLA</text>
+      <rect x="140" y="225" width="153" height="34" rx="17" fill="#58a6ff" fill-opacity=".09" stroke="#58a6ff" stroke-opacity=".25"/>
+      <text x="216.5" y="247" text-anchor="middle">World Models</text>
+      <rect x="305" y="225" width="118" height="34" rx="17" fill="#5eead4" fill-opacity=".09" stroke="#5eead4" stroke-opacity=".25"/>
+      <text x="364" y="247" text-anchor="middle">Ego Data</text>
+    </g>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M863 265H1173" stroke="#52728b" stroke-width="2"/>
+    <path d="M916 255V214L988 146L1060 177L1110 121" stroke="#071b29" stroke-width="24"/>
+    <path d="M916 255V214L988 146L1060 177L1110 121" stroke="url(#arm)" stroke-width="13"/>
+    <path d="M1105 119L1126 106L1150 120M1117 130L1130 149L1155 135" stroke="#5eead4" stroke-width="7"/>
+    <path d="M898 265V253H934V265" stroke="#8ba9c3" stroke-width="5"/>
+    <circle cx="916" cy="214" r="13" fill="#102b3b" stroke="#72b5ff" stroke-width="5"/>
+    <circle cx="988" cy="146" r="13" fill="#102b3b" stroke="#72b5ff" stroke-width="5"/>
+    <circle cx="1060" cy="177" r="11" fill="#102b3b" stroke="#5eead4" stroke-width="4"/>
+    <rect x="1116" y="205" width="38" height="38" rx="5" stroke="#5eead4" stroke-opacity=".75" stroke-width="2"/>
+    <path d="M1082 224H1099M1135 170V188" stroke="#5eead4" stroke-opacity=".4" stroke-width="2" stroke-dasharray="3 5"/>
+    <path d="M866 75H897M866 75V106M1176 75H1145M1176 75V106" stroke="#73aacb" stroke-opacity=".35" stroke-width="2"/>
+  </g>
+</svg>

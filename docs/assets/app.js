@@ -48,6 +48,20 @@ function renderProject(project, index) {
   const playlist = element('div', 'video-list');
   playlist.setAttribute('aria-label', `${project.title} 视频列表`);
   const videos = (project.videos || []).filter(video => video.title && ['file', 'embed', 'link'].includes(video.kind) && safeURL(video.src));
+  const playerHeading = element('div', 'player-heading');
+  const currentTitle = element('h4');
+  const currentNumber = element('span', 'current-number');
+  playerHeading.append(currentTitle, currentNumber);
+  const controls = element('div', 'gallery-controls');
+  const previous = element('button', 'step-button', '← 上一段');
+  const next = element('button', 'step-button', '下一段 →');
+  previous.type = next.type = 'button';
+  const direct = element('a', 'direct-link', '单独打开视频 ↗');
+  direct.target = '_blank'; direct.rel = 'noopener noreferrer';
+  controls.append(previous, direct, next);
+  let activeIndex = 0;
+  previous.addEventListener('click', () => selectVideo(videos[activeIndex - 1], activeIndex - 1));
+  next.addEventListener('click', () => selectVideo(videos[activeIndex + 1], activeIndex + 1));
 
   if (!videos.length) {
     const empty = element('div', 'media-empty');
@@ -62,6 +76,13 @@ function renderProject(project, index) {
   }
 
   function selectVideo(video, selectedIndex) {
+    if (!video) return;
+    activeIndex = selectedIndex;
+    currentTitle.textContent = video.title;
+    currentNumber.textContent = `${String(selectedIndex + 1).padStart(2, '0')} / ${String(videos.length).padStart(2, '0')}`;
+    previous.disabled = selectedIndex === 0;
+    next.disabled = selectedIndex === videos.length - 1;
+    direct.href = safeURL(video.src);
     for (const player of stage.querySelectorAll('video')) player.pause();
     stage.replaceChildren();
     error.hidden = true;
@@ -99,16 +120,30 @@ function renderProject(project, index) {
   }
 
   videos.forEach((video, i) => {
-    const button = element('button', 'video-tab', video.title);
+    const button = element('button', 'video-tab');
+    const thumbnail = element('span', 'thumbnail');
+    if (video.poster && safeURL(video.poster)) {
+      const img = element('img'); img.src = safeURL(video.poster); img.alt = ''; img.loading = 'lazy';
+      thumbnail.append(img);
+    }
+    thumbnail.append(element('span', 'thumbnail-play', '▶'));
+    const label = element('span', 'clip-label');
+    label.append(element('span', 'clip-index', `EXPERIMENT ${String(i + 1).padStart(2, '0')}`), element('strong', '', video.title));
+    if (video.duration) label.append(element('small', '', video.duration));
+    button.append(thumbnail, label);
     button.type = 'button';
     button.setAttribute('aria-pressed', 'false');
-    if (video.duration) button.append(element('small', '', video.duration));
     button.addEventListener('click', () => selectVideo(video, i));
     playlist.append(button);
   });
   if (videos.length) selectVideo(videos[0], 0);
-  mediaColumn.append(stage, caption, error);
-  if (videos.length > 1) mediaColumn.append(playlist);
+  mediaColumn.append(playerHeading, stage, caption, error);
+  if (videos.length) mediaColumn.append(controls);
+  const playlistColumn = element('aside', 'playlist-column');
+  playlistColumn.setAttribute('aria-label', '选择演示视频');
+  const playlistHeading = element('div', 'playlist-heading');
+  playlistHeading.append(element('strong', '', '实验影像'), element('span', '', `${videos.length} 段视频`));
+  playlistColumn.append(playlistHeading, playlist);
 
   const detail = element('div', 'project-detail');
   detail.append(element('p', 'project-description', project.description));
@@ -127,8 +162,9 @@ function renderProject(project, index) {
     source.append(element('span', '', '↗'));
     detail.append(source);
   }
-  layout.append(mediaColumn, detail);
-  article.append(layout);
+  layout.append(mediaColumn);
+  if (videos.length > 1) layout.append(playlistColumn);
+  article.append(layout, detail);
   return article;
 }
 
@@ -136,7 +172,7 @@ try {
   const { projects } = await import('../projects.js');
   if (!Array.isArray(projects)) throw new Error('Invalid project list');
   projects.forEach((project, index) => list.append(renderProject(project, index)));
-  document.querySelector('#project-count').textContent = `${String(projects.length).padStart(2, '0')} PROJECT${projects.length === 1 ? '' : 'S'}`;
+  document.querySelector('#project-count').textContent = `${String(projects.reduce((sum, project) => sum + (project.videos || []).length, 0)).padStart(2, '0')} FILMS · REAL-WORLD ROBOTICS`;
 } catch {
   document.querySelector('#load-error').hidden = false;
 }

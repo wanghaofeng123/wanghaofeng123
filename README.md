@@ -17,16 +17,6 @@
 - **Agent 与自主决策**：多模态推理、任务规划、工具使用与长程任务执行。
 - **学习与泛化**：模仿学习、强化学习与后训练，以及面向真实环境的迁移与泛化。
 
-## 开源项目
-
-### [xarm7-quest-teleop](https://github.com/wanghaofeng123/xarm7-quest-teleop)
-
-基于 **Meta Quest 控制器**的 **xArm7 + G2 夹爪**遥操作、双相机数据采集与数据质量管理系统。
-
-- 六维相对遥操作、夹爪控制与中文 GTK 3 桌面界面。
-- 记录相机图像、机械臂状态、动作与时间信息，支持数据浏览和回放。
-- 提供轨迹质量检查与清洗，并导出为 LeRobot v2.1、RoboTwin HDF5 格式。
-
 ## 技术与工具
 
 | 方向 | 技术与工具 |
@@ -50,4 +40,4 @@
 
 ## 交流
 
-欢迎通过 [项目 Issues](https://github.com/wanghaofeng123/xarm7-quest-teleop/issues) 交流机器人遥操作、数据采集与项目复现问题。
+欢迎围绕具身基础模型、VLA、WAM 与 Agent 交流。

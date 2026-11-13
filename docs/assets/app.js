@@ -164,27 +164,15 @@ function renderProject(project, index) {
   }
   layout.append(mediaColumn);
   if (videos.length > 1) layout.append(playlistColumn);
-  if (project.figure) {
-    const figure = element('figure', 'prediction-figure');
-    const link = externalLink('', safeURL(project.figure), '');
-    const img = element('img');
-    img.src = safeURL(project.figure);
-    img.alt = '九组腕部图像、目标弱标签和模型预测的并排对照';
-    link.append(img);
-    figure.append(link, element('figcaption', '', project.figureCaption));
-    article.append(figure, detail);
-  } else {
-    article.append(layout, detail);
-  }
+  article.append(layout, detail);
   return article;
 }
 
 try {
-  const { projects } = await import('../projects.js?v=wrist1');
+  const { projects } = await import('../projects.js?v=repos1');
   if (!Array.isArray(projects)) throw new Error('Invalid project list');
   projects.forEach((project, index) => list.append(renderProject(project, index)));
   document.querySelector('#project-count').textContent = `${String(projects.reduce((sum, project) => sum + (project.videos || []).length, 0)).padStart(2, '0')} FILMS · REAL-WORLD ROBOTICS`;
 } catch {
   document.querySelector('#load-error').hidden = false;
 }
-

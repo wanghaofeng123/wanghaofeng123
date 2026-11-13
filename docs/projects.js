@@ -67,16 +67,5 @@ export const projects = [
       "caption": "桌面物体操作｜真实实验场景记录"
     }
   ]
-},
-{
-  "id": "wrist-heatmap",
-  "category": "π0.5 / SPATIAL SUPERVISION",
-  "title": "腕部热力图空间辅助头",
-  "subtitle": "π0.5 目标定位",
-  "description": "辅助头从腕部相机的视觉特征预测目标位置。在训练集以外的 7 条演示、21 个标注帧上，预测峰值与弱标签中心平均相距 6.12 像素（输入为 224 × 224）。",
-  "figure": "./media/wrist-comparison.jpg",
-  "figureCaption": "每组三列从左到右为腕部相机原图、弱标签热力图、模型预测热力图。点击查看原图。",
-  "source": "https://github.com/wanghaofeng123/pi05-wrist-heatmap",
-  "tags": ["π0.5", "腕部视觉", "空间监督"]
 }
 ];

@@ -7,7 +7,7 @@
   <meta name="description" content="王浩峰的项目演示与实验记录：具身模型、智能体与机器人系统。">
   <title>项目演示 · 王浩峰</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/style.css?v=repo-notes">
+  <link rel="stylesheet" href="./assets/style.css?v=ego-split">
 </head>
 <body>
   <a class="skip-link" href="#projects">跳到项目演示</a>
@@ -30,6 +30,13 @@
       <p class="load-error" id="load-error" hidden>项目暂时无法载入，请刷新页面，或前往 <a href="https://github.com/wanghaofeng123">GitHub 主页</a>。</p>
     </section>
 
+    <details class="wrap ego-tests" id="ego-tests">
+      <summary>第一视角数据处理 · 早期测试</summary>
+      <div class="ego-clips">
+        <figure><figcaption>手部关键点检测 <small>5 秒</small></figcaption><video controls playsinline preload="none" aria-label="手部关键点检测" poster="./media/ego-keypoints.jpg" src="./media/ego-keypoints.mp4"></video></figure>
+        <figure><figcaption>管线调试回放 <small>8 秒</small></figcaption><video controls playsinline preload="none" aria-label="管线调试回放" poster="./media/ego-debug.jpg" src="./media/ego-debug.mp4"></video></figure>
+      </div>
+    </details>
     <section class="wrap repos" id="repositories" aria-labelledby="repos-title">
       <div class="section-label"><h2 id="repos-title">公开仓库</h2></div>
       <ul>
@@ -42,6 +49,6 @@
   </main>
 
   <footer class="site-footer wrap"><span>王浩峰 · Wang Haofeng</span><span>Embodied AI &amp; Agents</span><a href="#page-title">回到顶部 ↑</a></footer>
-  <script type="module" src="./assets/app.js?v=repos1"></script>
+  <script type="module" src="./assets/app.js?v=ego-split"></script>
 </body>
 </html>

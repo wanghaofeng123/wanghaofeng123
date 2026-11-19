@@ -65,14 +65,6 @@ export const projects = [
       "poster": "./media/robot-demo-05.jpg",
       "duration": "00:29",
       "caption": "桌面物体操作｜真实实验场景记录"
-    },
-    {
-      "title": "第一视角手部检测 · 早期测试",
-      "kind": "file",
-      "src": "./media/ego-hand-preview.mp4",
-      "poster": "./media/ego-hand-preview.jpg",
-      "duration": "00:13",
-      "caption": "早期 Ego 数据处理管线的两个测试片段，记录手部关键点叠加和调试界面。"
     }
   ]
 }

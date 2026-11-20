@@ -40,7 +40,7 @@ export const projects = [
       {
         "title": "桌面易拉罐操作",
         "kind": "file",
-        "src": "./media/robot-demo-01.mp4",
+        "src": "./media/robot-demo-01-avc.mp4",
         "poster": "./media/robot-demo-01.jpg",
         "duration": "00:41",
         "caption": "桌面易拉罐操作｜真实实验场景记录"
@@ -57,7 +57,7 @@ export const projects = [
       {
         "title": "机械臂与纸杯 · 场景一",
         "kind": "file",
-        "src": "./media/robot-demo-03.mp4",
+        "src": "./media/robot-demo-03-avc.mp4",
         "poster": "./media/robot-demo-03.jpg",
         "duration": "00:32",
         "caption": "机械臂与纸杯 · 场景一｜真实实验场景记录"
@@ -65,7 +65,7 @@ export const projects = [
       {
         "title": "机械臂与纸杯 · 场景二",
         "kind": "file",
-        "src": "./media/robot-demo-04.mp4",
+        "src": "./media/robot-demo-04-avc.mp4",
         "poster": "./media/robot-demo-04.jpg",
         "duration": "00:43",
         "caption": "机械臂与纸杯 · 场景二｜真实实验场景记录"

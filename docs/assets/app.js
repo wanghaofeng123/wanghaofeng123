@@ -178,7 +178,7 @@ function renderProject(project, index) {
 }
 
 try {
-  const { projects } = await import('../projects.js?v=robot-groups');
+  const { projects } = await import('../projects.js?v=avc');
   if (!Array.isArray(projects)) throw new Error('Invalid project list');
   projects.forEach((project, index) => list.append(renderProject(project, index)));
   document.querySelector('#project-count').textContent = `${String(projects.reduce((sum, project) => sum + (project.videos || []).length, 0)).padStart(2, '0')} FILMS · REAL-WORLD ROBOTICS`;

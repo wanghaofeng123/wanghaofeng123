@@ -60,8 +60,8 @@ function renderProject(project, index) {
   direct.target = '_blank'; direct.rel = 'noopener noreferrer';
   controls.append(previous, direct, next);
   let activeIndex = 0;
-  previous.addEventListener('click', () => selectVideo(videos[activeIndex - 1], activeIndex - 1));
-  next.addEventListener('click', () => selectVideo(videos[activeIndex + 1], activeIndex + 1));
+  previous.addEventListener('click', () => selectVideo(videos[activeIndex - 1], activeIndex - 1, true));
+  next.addEventListener('click', () => selectVideo(videos[activeIndex + 1], activeIndex + 1, true));
 
   if (!videos.length) {
     const empty = element('div', 'media-empty');
@@ -75,7 +75,7 @@ function renderProject(project, index) {
     caption.textContent = '项目代码已公开，演示视频整理中。';
   }
 
-  function selectVideo(video, selectedIndex) {
+  function selectVideo(video, selectedIndex, play = false) {
     if (!video) return;
     activeIndex = selectedIndex;
     currentTitle.textContent = video.title;
@@ -116,6 +116,15 @@ function renderProject(project, index) {
       player.append(glyph, element('strong', '', video.title), externalLink('观看演示 ↗', url, 'external-video'));
     }
     stage.append(player);
+    if (play && video.kind === 'file') {
+      player.play().catch(reason => {
+        if (reason.name === 'NotAllowedError' && stage.contains(player)) {
+          error.textContent = '请点击视频中的播放按钮继续。';
+          error.hidden = false;
+          player.addEventListener('playing', () => { error.hidden = true; }, { once: true });
+        }
+      });
+    }
     [...playlist.children].forEach((button, i) => button.setAttribute('aria-pressed', String(i === selectedIndex)));
   }
 
@@ -133,7 +142,7 @@ function renderProject(project, index) {
     button.append(thumbnail, label);
     button.type = 'button';
     button.setAttribute('aria-pressed', 'false');
-    button.addEventListener('click', () => selectVideo(video, i));
+    button.addEventListener('click', () => selectVideo(video, i, true));
     playlist.append(button);
   });
   if (videos.length) selectVideo(videos[0], 0);
